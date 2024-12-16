@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using System.Xml.Linq;
+using System.IO;
 
 namespace edycja
 {
@@ -20,9 +23,27 @@ namespace edycja
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string plik1 = @"..\..\dane\Produkty.xml";
+        private string plik2 = @"..\..\dane\Produkty2.xml";
+        private XElement wykazProduktow;
         public MainWindow()
         {
             InitializeComponent();
+            PrzygotujWiazanie();
+        }
+        private void PrzygotujWiazanie()
+        {
+            if (File.Exists(plik1))
+                wykazProduktow = XElement.Load(plik1);
+            gridProdukty.DataContext = wykazProduktow;
+            ObservableCollection<string> listaMagazynow =
+                 new ObservableCollection<string>() { "Katowice 1", "Katowice 2", "Gliwice 1" };
+            nazwaMagazynu.ItemsSource = listaMagazynow;
+        }
+        private void btnZapisz_Click(object sender, RoutedEventArgs e)
+        {
+            wykazProduktow.Save(plik2);
+            MessageBox.Show("Pomyślnie zapisano dane do pliku");
         }
     }
 }

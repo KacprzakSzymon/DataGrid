@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:edycja"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Edycja produktów z pliku XML" Height="210" Width="360">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="gridProdukty" AutoGenerateColumns="false" Margin="10" AlternatingRowBackground="Lavender" GridLinesVisibility="None"
+                  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding Path=Elements[Produkt]}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Symbol" Binding="{Binding Element[Symbol].Value}"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Element[Nazwa].Value}"/>
+                <DataGridTextColumn Header="Liczba sztuk" Binding="{Binding Element[LiczbaSztuk].Value}"/>
+                <DataGridTextColumn Header="Nazwa magazynu" Binding="{Binding Element[Magazyn].Value}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="1" Grid.Column="1" Margin="5" MinWidth="120" HorizontalAlignment="right"
+                Height="30"
+                Content="zapisz"
+                Click="btnZapisz_Click"/>
     </Grid>
 </Window>

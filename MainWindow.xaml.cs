@@ -35,6 +35,9 @@ namespace DataGrid
             ListaProduktow.Add(new Produkt("DZ-10", "długopis żelowy", 1121, "Katowice 1"));
             ListaProduktow.Add(new Produkt("DZ-12", "długopis kulkowy", 280, "Katowice 2"));
             gridProdukty.ItemsSource= ListaProduktow;
+            ObservableCollection<string> listaMagazynow = 
+                new ObservableCollection<string>() { "Katowice 1", "Katowice 2", "Gliwice 1" };
+            nazwaMagazynu.ItemsSource = listaMagazynow;
         }
     }
     

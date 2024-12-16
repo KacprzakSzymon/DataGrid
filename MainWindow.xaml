@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DataGrid"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="10">
+        <DataGrid Name="gridProdukty"/>
     </Grid>
 </Window>

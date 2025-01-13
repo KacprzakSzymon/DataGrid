@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Security.Policy;
 
 namespace DataGrid
 {
@@ -30,7 +31,7 @@ namespace DataGrid
         private void PrzygotujWiazanie()
         {
             ListaProduktow = new ObservableCollection<Produkt>();
-            ListaProduktow.Add(new Produkt("01-11", "ołówek", 8, "Katowice1"));
+            ListaProduktow.Add(new Produkt("01-11", "ołówek", 8, "Katowice1", new Url(@"C:\temp\ + olowek.jpg"));
             ListaProduktow.Add(new Produkt("PW-20", "pióro wieczne", 75, "Katowice 2"));
             ListaProduktow.Add(new Produkt("DZ-10", "długopis żelowy", 1121, "Katowice 1"));
             ListaProduktow.Add(new Produkt("DZ-12", "długopis kulkowy", 280, "Katowice 2"));

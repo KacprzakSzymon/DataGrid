@@ -19,6 +19,13 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
+				<DataGridTemplateColumn Header="Zdjecie" MaxWidth="50" IsReadOnly="True">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<Image Source="{Binding Path=Zdjecie}"/>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
                 <DataGridComboBoxColumn x:Name="nazwaMagazynu" Header="Magazyn" SelectedItemBinding="{Binding Magazyn}"/>
             </DataGrid.Columns>
         </DataGrid>

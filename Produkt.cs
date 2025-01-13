@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Policy;
 namespace DataGrid
 {
     class Produkt
@@ -8,6 +9,7 @@ namespace DataGrid
         public string Nazwa { get; set; }
         public int LiczbaSztuk { get; set; }
         public string Magazyn { get; set; }
+        public Url Zdjecie {  get; set; }
         public Produkt(string sym, string naz, int szt, string mag)
         {
             Symbol = sym;

@@ -39,6 +39,7 @@
 					</DataTemplate>
 				</DataGrid.RowDetailsTemplate>
             </DataGrid.Columns>
+			
         </DataGrid>
 
     </Grid>

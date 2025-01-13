@@ -31,7 +31,7 @@ namespace DataGrid
         private void PrzygotujWiazanie()
         {
             ListaProduktow = new ObservableCollection<Produkt>();
-            ListaProduktow.Add(new Produkt("01-11", "ołówek", 8, "Katowice1", new Url(@"C:\temp\ + olowek.jpg"));
+            ListaProduktow.Add(new Produkt("01-11", "ołówek", 8, "Katowice1", new Url(@"C:\temp\ + olowek.jpg"),"Ołówek z gumką HB"));
             ListaProduktow.Add(new Produkt("PW-20", "pióro wieczne", 75, "Katowice 2"));
             ListaProduktow.Add(new Produkt("DZ-10", "długopis żelowy", 1121, "Katowice 1"));
             ListaProduktow.Add(new Produkt("DZ-12", "długopis kulkowy", 280, "Katowice 2"));
@@ -39,6 +39,21 @@ namespace DataGrid
             ObservableCollection<string> listaMagazynow = 
                 new ObservableCollection<string>() { "Katowice 1", "Katowice 2", "Gliwice 1" };
             nazwaMagazynu.ItemsSource = listaMagazynow;
+        }
+        private void btnZdjecie_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.Title = "wybierz zdjęcie";
+            dialog.Filter = Image files (*.jpg, *png;*.jpeg)| *.jpg; *png; *.jpeg;|All
+                files(*.*) | *.*;
+            dialog.InitialDirectory = @"C:\temp\";
+            if (dialog.ShowDialog()==true)
+            {
+                (gridProdukty.SelectedItem as Produkt).Zdjecie = new Url(dialog.FileName);
+                gridProdukty.CommitEdit(DataGridEditingUnit.Cell, true);
+                gridProdukty.CommitEdit();
+                CollectionViewSource.GetDefaultView(gridProdukty.ItemsSource).Refresh();
+            }
         }
     }
     

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Security.Policy;
+using System.ComponentModel;
 
 namespace DataGrid
 {
@@ -27,6 +28,7 @@ namespace DataGrid
         {
             InitializeComponent();
             PrzygotujWiazanie();
+            btnZdjecie_Click();
         }
         private void PrzygotujWiazanie()
         {
@@ -39,6 +41,8 @@ namespace DataGrid
             ObservableCollection<string> listaMagazynow = 
                 new ObservableCollection<string>() { "Katowice 1", "Katowice 2", "Gliwice 1" };
             nazwaMagazynu.ItemsSource = listaMagazynow;
+            ICollectionView widok = CollectionViewSource.GetDefaultView(gridProdukty.ItemsSource);
+            widok.GroupDescriptions.Add(new PropertyGroupDescription("magazyn"));
         }
         private void btnZdjecie_Click(object sender, RoutedEventArgs e)
         {

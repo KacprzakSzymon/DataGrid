@@ -39,7 +39,31 @@
 					</DataTemplate>
 				</DataGrid.RowDetailsTemplate>
             </DataGrid.Columns>
-			
+			<DataGrid.GroupStyle>
+				<GroupStyle>
+					<GroupStyle.ContainerStyle>
+						<style TargetType="{x:Type GroupItem}">
+							<Setter Property="Template">
+								<Setter.Value>
+									<ControlTemplate TargetType="{x:TypeGroupItem}">
+										<expander>
+											<expander.header>
+												<StackPanel orientation="Horizontal">
+													<Textblock text="Magazyn:" margin="5"/>
+													<Textblock text="{Binding Path=Name}" margin="5" fontweight="bold" foreground="blue"/>
+													<Textblock text="Liczba produktów:" margin="5"/>
+													<Textblock text="{Binding Path=ItemCount}" margin="5" fontweight="bold" foreground="blue"/>
+													
+												</StackPanel>
+											</expander.header>
+										</expander>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</style>
+					</GroupStyle.ContainerStyle>
+				</GroupStyle>
+			</DataGrid.GroupStyle>
         </DataGrid>
 
     </Grid>

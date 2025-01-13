@@ -27,6 +27,17 @@
 					</DataGridTemplateColumn.CellTemplate>
 				</DataGridTemplateColumn>
                 <DataGridComboBoxColumn x:Name="nazwaMagazynu" Header="Magazyn" SelectedItemBinding="{Binding Magazyn}"/>
+				<DataGrid.RowDetailsTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Margin="10" Text="Opis produktu:"/>
+							<TextBox margin="10" text="{Binding Path=Opis}"
+									 TextWrapping="Wrap" FontWeight="Bold"
+									 Foreground="BlueViolet" Width="150"/>
+							<Button x:Name="btnZdjecie" margin="10" click="btnZdjecie_Click" content="dodaj lub zmien zdjecie" height="30"/>
+						</StackPanel>
+					</DataTemplate>
+				</DataGrid.RowDetailsTemplate>
             </DataGrid.Columns>
         </DataGrid>
 

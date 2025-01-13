@@ -10,6 +10,7 @@ namespace DataGrid
         public int LiczbaSztuk { get; set; }
         public string Magazyn { get; set; }
         public Url Zdjecie {  get; set; }
+        public string Opis { get; set; }
         public Produkt(string sym, string naz, int szt, string mag)
         {
             Symbol = sym;
